@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Attendance</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Animate.css for animation -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <style>
+        .navbar {
+            background-color: #1A1A2E;
+        }
+
+        .navbar-brand {
+            font-size: 1.75rem;
+            color: #fff;
+        }
+
+        .card {
+            animation: fadeInUp 1s;
+            border-radius: 20px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            background-color: #162447;
+            color: #fff;
+        }
+
+        .card-header {
+            background-color: #1F4068;
+            color: #fff;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+        }
+
+        .navbar a {
+            color: #fff;
+            transition: color 0.3s;
+        }
+
+        .navbar a:hover {
+            color: #1B9CFC;
+        }
+
+        .btn-primary {
+            background-color: #1B9CFC;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background-color: #1287A5;
+        }
+
+        body {
+            background: linear-gradient(to right, #0F2027, #203A43, #2C5364);
+            color: #fff;
+        }
+
+        .container {
+            margin-top: 30px;
+        }
+
+        .thead-dark {
+            background-color: #1F4068;
+        }
+
+        .table {
+            margin-bottom: 0;
+            color: #fff;
+        }
+
+        .table-striped tbody tr:nth-of-type(odd) {
+            background-color: #1b1b2f;
+        }
+
+        .table-striped tbody tr:nth-of-type(even) {
+            background-color: #0e0e19;
+        }
+
+        footer {
+            background-color: #1A1A2E;
+            padding: 20px 0;
+            color: #fff;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .footer-links a {
+            color: #1B9CFC;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #1287A5;
+        }
+
+        .social-icons a {
+            color: #fff;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: #1B9CFC;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg">
+        <a class="navbar-brand" href="#">
+            <img src="https://cuet-2023-public.s3.ap-south-1.amazonaws.com/site-admin23/ac61e5f2feb4b0f534b1bc4794cdc772cf1679dca69cc262d5c710ef24b321a83/Datta%20Meghe%20Institute%20of%20Higher%20Education%20and%20Research1677131104_upload_logo.jpg"
+                width="40" height="40" class="d-inline-block align-top" alt="">
+            DMIHER
+        </a>
+        <button class="navbar-toggler border-dark" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars" style="color:#fff;"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/"><i class="fas fa-user"></i> Profile</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/marks"><i class="fas fa-graduation-cap"></i> Marks</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card animate__animated animate__fadeInUp mt-5">
+                    <div class="card-header text-center">
+                        <h2>Welcome, {{ student.name }}</h2>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="mt-4">Attendance Records</h3>
+                        <table class="table table-striped mt-3 table-bordered">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for attendance in attendances %}
+                                <tr>
+                                    <td>{{ attendance.date }}</td>
+                                    <td>{{ attendance.status }}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <p>&copy; 2024 DMIHER. All Rights Reserved.</p>
+                    <div class="footer-links">
+                        <a href="#">Privacy Policy</a> |
+                        <a href="#">Terms of Use</a> |
+                        <a href="#">Contact Us</a>
+                    </div>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            background: linear-gradient(to right, #0F2027, #203A43, #2C5364);
+            color: #fff;
+        }
+
+        .content-wrapper {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .navbar {
+            background-color: #1A1A2E;
+        }
+
+        .navbar-brand {
+            font-size: 1.75rem;
+            color: #fff;
+        }
+
+        .card {
+            animation: fadeInUp 1s;
+            border-radius: 20px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            background-color: #162447;
+            color: #fff;
+        }
+
+        .card-header {
+            background-color: #1F4068;
+            color: #fff;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+        }
+
+        .navbar a {
+            color: #fff;
+            transition: color 0.3s;
+        }
+
+        .navbar a:hover {
+            color: #1B9CFC;
+        }
+
+        .btn-primary {
+            background-color: #1B9CFC;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background-color: #1287A5;
+        }
+
+        .container {
+            margin-top: 30px;
+            flex: 1;
+        }
+
+        .nav-link {
+            margin-right: 20px;
+        }
+
+        .welcome-text {
+            font-size: 1.25rem;
+            margin-bottom: 20px;
+        }
+
+        .info-text {
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        footer {
+            background-color: #1A1A2E;
+            padding: 20px 0;
+            color: #fff;
+            text-align: center;
+        }
+
+        .footer-links a {
+            color: #1B9CFC;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #1287A5;
+        }
+
+        .social-icons a {
+            color: #fff;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: #1B9CFC;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content-wrapper">
+        <nav class="navbar navbar-expand-lg">
+            <a class="navbar-brand" href="#">
+                <img src="https://cuet-2023-public.s3.ap-south-1.amazonaws.com/site-admin23/ac61e5f2feb4b0f534b1bc4794cdc772cf1679dca69cc262d5c710ef24b321a83/Datta%20Meghe%20Institute%20of%20Higher%20Education%20and%20Research1677131104_upload_logo.jpg" width="40" height="40" class="d-inline-block align-top" alt="">
+                DMIHER
+            </a>
+            <button class="navbar-toggler border-dark" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-bars" style="color:#fff;"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/marks"><i class="fas fa-chart-bar"></i> Marks</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/attendance"><i class="fas fa-user-check"></i> Attendance</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="card animate__animated animate__fadeInUp">
+                        <div class="card-header text-center">
+                            <h2>Welcome, {{ student.name }}</h2>
+                        </div>
+                        <div class="card-body">
+                            <p class="welcome-text">Hello, {{ student.name }}! Here's a snapshot of your profile.</p>
+                            <p class="info-text"><strong>Enrollment Number:</strong> {{ student.enrollment_number }}</p>
+                            <p class="info-text"><strong>Age:</strong> {{ student.age }}</p>
+                            <p class="info-text"><strong>Course:</strong> {{ student.course }}</p>
+                            <p class="info-text"><strong>Date of Birth:</strong> {{ student.dob }}</p>
+                            <p class="info-text"><strong>Semester:</strong> {{ student.semester }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <p>&copy; 2024 DMIHER. All Rights Reserved.</p>
+                    <div class="footer-links">
+                        <a href="#">Privacy Policy</a> |
+                        <a href="#">Terms of Use</a> |
+                        <a href="#">Contact Us</a>
+                    </div>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <!-- Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

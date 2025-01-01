@@ -1,0 +1,25 @@
+<h2>Teacher Dashboard</h2>
+<h3>Subjects You Teach</h3>
+<ul>
+    {% for subject in subjects %}
+        <li>{{ subject.name }} - {{ subject.semester.name }} - {{ subject.course.name }}</li>
+    {% endfor %}
+</ul>
+
+<h3>Students in Your Subjects</h3>
+<table>
+        <th>Name</th>
+        <th>Actions</th>
+    </tr>
+    {% for student in students %}
+        <tr>
+            <td>{{ student.name }}</td>
+            <td>
+                <!-- Link to add marks for the student -->
+                <a href="{% url 'add_marks' student.id subject.id %}">Add Marks</a>
+                <!-- Link to add attendance for the student -->
+                <a href="{% url 'attendance' student.id %}">Add Attendance</a>
+            </td>
+        </tr>
+    {% endfor %}
+</table>
