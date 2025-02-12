@@ -1,4 +1,4 @@
-# Student Management System
+![image](https://github.com/user-attachments/assets/606e7da0-11dd-4499-8ef5-f9b3880c1974)# Student Management System
 
 ## Overview
 The **Student Management System** is a web-based application built with **Django** that allows administrators, teachers, and students to manage student-related information efficiently. The system provides role-based access where:
@@ -25,6 +25,13 @@ The **Student Management System** is a web-based application built with **Django
 - **Frontend:** HTML, CSS, Bootstrap, JavaScript
 - **Database:** SQLite (can be switched to PostgreSQL/MySQL)
 - **Authentication:** Django’s built-in authentication system
+
+## Screenshots
+![image](https://github.com/user-attachments/assets/14ea1f90-0513-47c0-965d-f8a15bdadcde)
+![image](https://github.com/user-attachments/assets/b964b3fe-a1a6-41b1-bd85-f1415d29e135)
+![image](https://github.com/user-attachments/assets/85308d0c-8de3-42af-81a9-f1b555d501b1)
+![image](https://github.com/user-attachments/assets/2542a330-cd31-48f7-afe0-371bd7e3368f)
+
 
 ## Installation & Setup
 ### **Prerequisites**
